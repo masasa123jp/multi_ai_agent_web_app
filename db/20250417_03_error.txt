@@ -1,0 +1,40 @@
+psql: エラー: "localhost"(::1)、ポート5432のサーバーへの接続に失敗しました: FATAL:  データベース"agentbased"は存在しません
+psql:ini_data.sql:9: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"users"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO users (email, username, password_hash, role)
+                  ^
+psql:ini_data.sql:15: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"projects"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO projects (user_email, name, description)
+                  ^
+psql:ini_data.sql:21: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"agent_tasks"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO agent_tasks (project_user_email, project_name, a...
+                  ^
+psql:ini_data.sql:27: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"artifacts"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO artifacts (project_user_email, project_name, art...
+                  ^
+psql:ini_data.sql:33: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"stakeholder_feedback"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO stakeholder_feedback (project_user_email, projec...
+                  ^
+psql:ini_data.sql:38: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"test_results"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO test_results (project_user_email, project_name, ...
+                  ^
+psql:ini_data.sql:43: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"security_reports"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO security_reports (project_user_email, project_na...
+                  ^
+psql:ini_data.sql:48: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"it_consulting_reports"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO it_consulting_reports (project_user_email, proje...
+                  ^
+psql:ini_data.sql:53: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"dba_designs"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO dba_designs (project_user_email, project_name, d...
+                  ^
+psql:ini_data.sql:59: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"system_logs"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO system_logs (log_level, message)
+                  ^
+psql:ini_data.sql:64: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"file_attachments"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO file_attachments (project_user_email, project_na...
+                  ^
+psql:ini_data.sql:69: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"workflow_executions"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO workflow_executions (project_user_email, project...
+                  ^
+psql:ini_data.sql:75: ERROR:  繝ｪ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ"api_usage_logs"縺ｯ蟄伜惠縺励∪縺帙ｓ
+行 1: INSERT INTO api_usage_logs (api_name, tokens_used, cost, det...
+                  ^

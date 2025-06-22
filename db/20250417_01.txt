@@ -1,0 +1,11 @@
+ current_setting 
+-----------------
+ UTF8
+(1 行)
+
+SET
+CREATE DATABASE
+データベース"agentbased"にユーザー"mydbuser"として接続しました。
+CREATE EXTENSION
+CREATE EXTENSION
+CREATE SCHEMA

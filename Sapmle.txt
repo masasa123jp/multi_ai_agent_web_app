@@ -1,0 +1,72 @@
+TetrisProject20250422
+ブラウザで遊べるテトリスをHTML+JSで開発してください。
+
+curl -X POST http://127.0.0.1:5000/api/workflow/async -H "Content-Type: application/json" -d "{\"requirement\":\"テトリスをPython/Tkinterで実装せよ\",\"project_name\":\"TetrisProject\",\"model\":\"o4-mini\",\"max_cost\":0.2}"
+
+テトリス開発01：
+あなたたちは優秀なシステム開発アプリケーション開発集団です。プログラムと生成AI技術で世界を変えるというミッションを持っています。今回の私の依頼は、テトリスプログラムの開発です。ブラウザで遊べるシンプルなテトリスをHTML+JSで開発してください。具体的な実装形態やモジュール構成は、あなたにお任せします。複雑なプロジェクト工程管理、保守や維持についてはいったん不要です。機能の詳細化に関連した内容に特化して開発工程を進めてください。
+
+テトリス開発02：
+あなたたちは優秀なシステム開発アプリケーション開発集団です。プログラムと生成AI技術で世界を変えるというミッションを持っています。今回の私の依頼は、テトリスプログラムの開発です。ブラウザで遊べるシンプルなテトリスをHTML+JSで開発してください。具体的な実装形態やモジュール構成は、あなたにお任せしますが、データベースの実装は不要です。ローカルブラウザ上での面での利用のみを予定しているのでセキュリティ面複雑な設計は不要です。また、プロジェクト工程管理、保守や維持についてはいったん不要です。機能の詳細化に関連した内容に特化して開発工程を進めてください。
+
+テトリス開発03：
+あなたたちは優秀なシステム開発アプリケーション開発集団です。プログラムと生成AI技術で世界を変えるというミッションを持っています。今回の私の依頼は、テトリスプログラムの開発です。ブラウザで遊べる極々シンプルなテトリスをHTML+JSで開発してください。大方針として実装はシンプルかつ複数のパタンを提案といったケースでの詳細な議論は不要で、最低限のシンプル実装でよいです。具体的な実装形態やモジュール構成は、あなたにお任せしますが、データベースの実装は不要です。ローカルブラウザ上での面での利用のみを予定しているのでセキュリティ面複雑な設計は不要です。また、プロジェクト工程管理、保守や維持についてはいったん不要です。機能の詳細化に関連した内容に特化して開発工程を進めてください。
+
+curl -v -X POST http://127.0.0.1:5000/api/workflow/async -H "Content-Type: application/json" -d "{\"requirement\":\"テトリスをPython/Tkinterで実装せよ\",\"project_name\":\"TetrisProject\",\"model\":\"o4-mini\",\"max_cost\":0.2}"
+
+以下、各エージェントの動作確認用 curl コマンド例（改行なし）です。project_name と requirement は「テトリス開発01」「テトリス開発01：…」を使い、model は o4-mini-high、max_cost は 1.0、max_tokens は 10000 にしています。必要に応じて値を置き換えてご利用ください。
+
+REM # 1. Stakeholder Agent (要件詳細化・評価)
+curl -v -X POST http://127.0.0.1:8008/collect_feedback -H "Content-Type: application/json" -d "{\"feedback_context\":{\"requirement\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。プログラムと生成AI技術で世界を変えるというミッションを持っています。今回の私の依頼は、テトリスプログラムの開発です。ブラウザで遊べるテトリスをHTML+JSで開発してください。具体的な実装形態やモジュール構成は、あなたにお任せします。\",\"project_name\":\"テトリス開発01\"},\"mode\":\"detail\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 2. Project Manager Agent (スケジュール／コスト見積り)
+curl -v -X POST http://127.0.0.1:8007/schedule -H "Content-Type: application/json" -d "{\"project_name\":\"テトリス開発01\",\"timeline\":{\"requirement\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。…任せします。\",\"project_name\":\"テトリス開発01\"},\"model_name\":\"o4-mini-high\"}"
+
+REM # 3. IT Consulting Agent (全体アーキテクチャ助言)
+curl -v -X POST http://127.0.0.1:8005/advice -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。…任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 4. DBA Agent (DB 設計)
+curl -v -X POST http://127.0.0.1:8006/design_schema -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。…任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 5. UI Generation Agent (画面設計)
+curl -v -X POST http://127.0.0.1:8002/generate_ui -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。…任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 6. Code Generation Agent (コード生成)
+curl -v -X POST http://127.0.0.1:8001/generate_code -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01： あなたたちは優秀なシステム開発アプリケーション開発集団です。…任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 7. Code Patch Agent (コード修正・マージ)
+curl -v -X POST http://127.0.0.1:8009/patch_code -H "Content-Type: application/json" -d "{\"source_code\":\"// 既存コードサンプル\",\"instructions\":\"テトリス用にUIイベント処理を追加してください\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 8. QA Agent (自動テスト)
+curl -v -X POST http://127.0.0.1:8003/run_qa -H "Content-Type: application/json" -d "{\"project_name\":\"テトリス開発01\",\"requirement\":\"テトリス開発01： あなたたちは優秀な…任せします。\",\"code\":\"// コードサンプル\",\"ui\":\"// UI サンプル\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 9. Security Agent (静的解析)
+curl -v -X POST http://127.0.0.1:8004/scan -H "Content-Type: application/json" -d "{\"code\":\"// コードサンプル\",\"ui\":\"// UI サンプル\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 1. Stakeholder Agent (要件詳細化・評価) :contentReference[oaicite:0]{index=0}&REM #8203;:contentReference[oaicite:1]{index=1}
+curl -v -X POST http://127.0.0.1:8008/collect_feedback -H "Content-Type: application/json" -d "{\"feedback_context\":{\"requirement\":\"テトリス開発01：あなたたちは優秀なシステム開発アプリケーション開発集団です。プログラムと生成AI技術で世界を変えるというミッションを持っています。今回の私の依頼は、テトリスプログラムの開発です。ブラウザで遊べるテトリスをHTML+JSで開発してください。具体的な実装形態やモジュール構成は、あなたにお任せします。\",\"project_name\":\"テトリス開発01\"},\"mode\":\"detail\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 2. Project Manager Agent (スケジュール作成) :contentReference[oaicite:2]{index=2}&REM #8203;:contentReference[oaicite:3]{index=3}
+curl -v -X POST http://127.0.0.1:8007/schedule -H "Content-Type: application/json" -d "{\"project_name\":\"テトリス開発01\",\"timeline\":{\"requirement\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\"},\"model_name\":\"o4-mini-high\"}"
+
+REM # 3. IT Consulting Agent (全体アーキテクチャ助言) :contentReference[oaicite:4]{index=4}&REM #8203;:contentReference[oaicite:5]{index=5}
+curl -v -X POST http://127.0.0.1:8005/advice -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 4. DBA Agent (DB 設計) :contentReference[oaicite:6]{index=6}&REM #8203;:contentReference[oaicite:7]{index=7}
+curl -v -X POST http://127.0.0.1:8006/design_schema -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 5. UI Generation Agent (画面設計) :contentReference[oaicite:8]{index=8}&REM #8203;:contentReference[oaicite:9]{index=9}
+curl -v -X POST http://127.0.0.1:8002/generate_ui -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 6. Code Generation Agent (コード生成) :contentReference[oaicite:10]{index=10}&REM #8203;:contentReference[oaicite:11]{index=11}
+curl -v -X POST http://127.0.0.1:8001/generate_code -H "Content-Type: application/json" -d "{\"prompt\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\",\"project_name\":\"テトリス開発01\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 7. Code Patch Agent (コード修正・マージ) :contentReference[oaicite:12]{index=12}&REM #8203;:contentReference[oaicite:13]{index=13}
+curl -v -X POST http://127.0.0.1:8009/patch_code -H "Content-Type: application/json" -d "{\"source_code\":\"// 既存コードサンプル\",\"instructions\":\"テトリス用にUIイベント処理を追加してください\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 8. QA Agent (自動テストレポート生成) :contentReference[oaicite:14]{index=14}&REM #8203;:contentReference[oaicite:15]{index=15}
+curl -v -X POST http://127.0.0.1:8003/run_qa -H "Content-Type: application/json" -d "{\"project_name\":\"テトリス開発01\",\"requirement\":\"テトリス開発01：あなたたちは優秀な…具体的に任せします。\",\"code\":\"// コードサンプル\",\"ui\":\"<div>UIサンプル</div>\",\"model_name\":\"o4-mini-high\"}"
+
+REM # 9. Security Agent (静的解析) 
+REM # ※セキュリティエージェントの実装ファイルが見当たらないため、パスは仮置きです。
+curl -v -X POST http://127.0.0.1:8004/scan -H "Content-Type: application/json" -d "{\"code\":\"// コードサンプル\",\"ui\":\"<div>UIサンプル</div>\",\"model_name\":\"o4-mini-high\"}"

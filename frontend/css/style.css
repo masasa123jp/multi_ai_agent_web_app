@@ -1,0 +1,112 @@
+/* ============================================================
+   style.css – Multi-AI Agent Workflow 画面用
+   ベース CSS + 追加スタイルを完全統合
+   ============================================================ */
+
+/* ---------- Global ---------------------------------------- */
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  background:#f0f2f5;                       /* 既存ベースを残す */
+}
+
+/* ---------- Navbar / Sidebar ------------------------------ */
+.list-group .list-group-item.active,
+.navbar .nav-link.active{
+  background:#0d6efd;
+  border-color:#0d6efd;
+  color:#fff;
+}
+aside .list-group-item{cursor:pointer;}
+
+/* ---------- Main Pane ------------------------------------- */
+main{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+/* ---------- Scrollable Lists ------------------------------ */
+.interaction-list,
+.log-list,
+#uploadList,
+#archiveList{                       /* ← 履歴リストも同条件で統一 */
+  max-height:220px;                /* 200 → 220 へ拡大（以前の仕様） */
+  overflow-y:auto;
+  font-size:.9rem;
+}
+
+/* ---------- Chart.js Container ---------------------------- */
+#chart-section{
+  overflow:hidden;
+  height:400px;
+  width:600px;
+  position:relative;
+}
+#chart-section canvas{
+  display:block;
+  width:100%;
+  height:100%;
+  image-rendering:crisp-edges;
+}
+
+/* ───────────────────────────────────────────
+   Mermaid – 図の縮小を解除＆中央揃え
+   ─────────────────────────────────────────── */
+#flow-diagram-body{
+  display:flex;
+  justify-content:center;      /* 水平中央 */
+  align-items:flex-start;      /* 上寄せ */
+  overflow:auto;
+  max-height:740px;            /* 既存 440 を維持 */
+  width:100%;
+}
+#flow-diagram-body .mermaid{
+  transform:none !important;
+  transform-origin:center top !important;
+  width:100%;
+}
+#flow-diagram-body .mermaid svg{
+  width:100% !important;
+  height:auto !important;
+}
+
+/* ---------- File Upload ----------------------------------- */
+#upload-section input[type=file]{width:72%;}
+#upload-section{max-height:200px;overflow-y:auto;}
+
+/* ---------- Active-Agent Highlight & Animation ------------- */
+@keyframes pulseGlow{
+  0%   {fill-opacity:1;   filter:drop-shadow(0 0 0   rgba(255,193,7,.5));}
+  50%  {fill-opacity:.85; filter:drop-shadow(0 0 12px rgba(255,193,7,.75));}
+  100% {fill-opacity:1;   filter:drop-shadow(0 0 0   rgba(255,193,7,.5));}
+}
+.mermaid .activeAgent{
+  fill:#ffeb3b !important;
+  stroke:#f44336 !important;
+  stroke-width:2px !important;
+  animation:pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* ---------- Interaction Item ------------------------------ */
+.interaction-item{font-weight:500;font-size:.9rem;}
+
+/* ---------- File Panels ----------------------------------- */
+#file-panels{flex:1 1 350px;}
+#file-panels>section{flex:0 0 auto;}
+
+/* ---------- Spinner Overlay ------------------------------- */
+.spinner-overlay{
+  position:fixed;
+  inset:0;                                 /* top/left/width/height を一括指定 */
+  background:rgba(0,0,0,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1050;
+}
+.spinner-overlay[hidden]{display:none;}
+
+/* ---------- Toast Container (追加) ------------------------- */
+#toast-container{
+  z-index:1200;                            /* モーダルより前面に表示 */
+}

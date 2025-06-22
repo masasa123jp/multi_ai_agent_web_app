@@ -1,0 +1,23 @@
+/* frontend/css/auth.css */
+
+/* ログインコンテナ全体を画面いっぱいの高さに */
+#login-container {
+  height: 100vh;
+  padding: 0 16px; /* モバイル時の左右余白 */
+}
+
+/* カードサイズ・レスポンシブ調整 */
+.login-card {
+  max-width: 380px;
+  width: 100%;
+}
+
+/* カード内の余白調整 */
+.login-card .card-body {
+  padding: 2rem;
+}
+
+/* フォーム内ボタン余白調整 */
+.login-card .btn {
+  padding: 0.75rem;
+}
